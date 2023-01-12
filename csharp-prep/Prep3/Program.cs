@@ -11,18 +11,19 @@ class Program
         int magicNumber = randomGenerator.Next(1, 100);
         Console.WriteLine($"{magicNumber}");
 
-        int input = 0;
-        while (input != magicNumber)
+        int inputInNumber = 0;
+
+        while (inputInNumber != magicNumber)
         {
             Console.Write("What is your guess? ");
             string valueFromUser = Console.ReadLine();
-            int valueInNumber = int.Parse(valueFromUser);
+            inputInNumber = int.Parse(valueFromUser);
 
-            if (valueInNumber > magicNumber)
+            if (inputInNumber > magicNumber)
             {
                 Console.WriteLine("Lower");
             }
-            else if (valueInNumber < magicNumber)
+            else if (inputInNumber < magicNumber)
             {
                 Console.WriteLine("Higher");
             }
