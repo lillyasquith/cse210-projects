@@ -32,7 +32,7 @@ class Program
 
         static int SquareNumber(int inputInNumber)
         {
-            int squaredNumber = inputInNumber * inputInNumber; 
+            int squaredNumber = inputInNumber * inputInNumber;
             return squaredNumber;
         }
 
