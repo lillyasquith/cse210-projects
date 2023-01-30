@@ -10,7 +10,7 @@ public class Journal
     {
         foreach (Entry entry in _entries)
         {
-            Console.WriteLine($"{entry._date} {entry._prompt} {entry._input}");
+            Console.WriteLine($"{entry._date}-{entry._prompt}-{entry._input}");
         }
     }
     public void AddEntry()
@@ -26,17 +26,23 @@ public class Journal
         using (StreamWriter outputFile = new StreamWriter(fileName))
             foreach (Entry entry in _entries)
             {
-                outputFile.WriteLine($"{entry._date} {entry._prompt} {entry._input}");
+                outputFile.WriteLine($"{entry._date}-{entry._prompt}-{entry._input}");
             }
     }
     public void Load()
     {
         // Read each line of the file into a string array. Each element
         // of the array is one line of the file.
+        string fileName = "journal.txt";
         string[] lines = System.IO.File.ReadAllLines(fileName);
         foreach (string line in lines)
         {
-            Console.WriteLine(line);
+            string[] parts = line.Split("-");
+            Entry entry = new Entry();
+            entry._date = parts[0];
+            entry._prompt = parts[1];
+            entry._input = parts[2];
+            _entries.Add(entry);
         }
         Console.WriteLine("Press any key to exit.");
         System.Console.ReadKey();
