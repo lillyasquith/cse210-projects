@@ -1,11 +1,10 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Threading;
 class Scripture
 {
     List<Word> scriptures = new List<Word>();
     Reference reference = new Reference("Proverbs", 3, 5, 6);
-
     public Scripture()
     {
         string text = "";
@@ -27,17 +26,11 @@ class Scripture
             word.WriteWord();
         }
     }
-    public void HideText()
+    public void HideRandomText()
     {
-
-        foreach (Word word in scriptures)
-        {
-            word.HideWord();
-        }
-    }
-    public List<Word> GetRenderedText()
-    {
-        return scriptures;
+        Random randomText = new Random();
+        int i = randomText.Next(scriptures.Count());
+        scriptures[i].HideWord();
     }
 
 }

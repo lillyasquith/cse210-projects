@@ -15,22 +15,21 @@ class Program
         // // word.SetHiddenWord("_");
         // word.HideWord();
         // word.WriteWord();
-
         //Test Scripture class
         Scripture scripture = new Scripture();
-        scripture.Display();
-        scripture.HideText();
-        Console.WriteLine();
-        Console.WriteLine("\nPress enter to continue or type 'quit' to finish:");
         string userChoice = "";
         while (userChoice != "quit")
         {
             scripture.Display();
-            Console.ReadLine();
-            Console.Clear();
-            scripture.HideText();
-            scripture.GetRenderedText();
+            Console.WriteLine();
+            Console.WriteLine("\nPress enter to continue or type 'quit' to finish:");
+            if (userChoice != "quit")
+            {
+                userChoice = Console.ReadLine();
+                Console.Clear();
+                scripture.HideRandomText();
+            }
         }
-
     }
+
 }
