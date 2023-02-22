@@ -23,12 +23,18 @@ class Program
             scripture.Display();
             Console.WriteLine();
             Console.WriteLine("\nPress enter to continue or type 'quit' to finish:");
+            userChoice = Console.ReadLine();
+
             if (userChoice != "quit")
             {
-                userChoice = Console.ReadLine();
                 Console.Clear();
                 scripture.HideRandomText();
             }
+            else
+            {
+                Console.WriteLine("You got this!");
+            }
+
         }
     }
 
