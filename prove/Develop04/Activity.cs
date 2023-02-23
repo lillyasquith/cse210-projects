@@ -1,20 +1,22 @@
 class Activity
 {
+    private string _activityName;
     private string _introMessage;
     private string _explanationMessage;
-    private int _time;
+    private int _duration;
     private string _outroMessage;
 
-    public Activity(string introMessage, string explanationMessage, int time, string outroMessage)
+    public Activity(string name, string description, int time, string outro)
     {
-        _introMessage = introMessage;
-        _explanationMessage = explanationMessage;
-        _time = time;
-        _outroMessage = outroMessage;
+        _activityName = "Breathing Activity";
+        _introMessage = "Welcome to the ";
+        _explanationMessage = description;
+        _duration = time;
+        _outroMessage = "Weldone!!";
     }
     public void WelcomeMessageDisplay()
     {
-        Console.WriteLine($"{_introMessage}");
+        Console.WriteLine($"{_introMessage} {_activityName}!");
     }
     public void DescriptionDisplay()
     {
@@ -22,13 +24,15 @@ class Activity
     }
     public int ActivityDuration()
     {
-        Console.Write("How long, in second, would you like for your session? ");
+        Console.Write("\nHow long, in second, would you like for your session? ");
         int time = int.Parse(Console.ReadLine());
         return time;
     }
     public void EndingMessageDisplay()
     {
-        Console.WriteLine($"{_outroMessage} {_time}");
+        Console.WriteLine($"{_outroMessage}");
+        Console.WriteLine($"\nYou have completed another {_duration} seconds of the {_activityName}.");
+
     }
 
 }

@@ -21,7 +21,7 @@ class Program
         // userChoice = Console.ReadLine();
 
         //test Activity class.
-        Activity activity = new Activity("Welcome to the Breathing Activity!", "\nThis activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.", 30, "Well done!");
+        Activity activity = new Activity("", "\nThis activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.", 30, "");
         activity.WelcomeMessageDisplay();
         activity.DescriptionDisplay();
         activity.ActivityDuration();
