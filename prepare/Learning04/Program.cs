@@ -13,9 +13,10 @@ class Program
         // MathAssignment assignmentM = new MathAssignment("", "", "Section 7.3", "Problems 8-19");
         // assignmentM.Display2();
 
-        Assignment assignment3 = new Assignment("Mary Waters", "European History");
-        assignment3.Display1();
-        WritingAssignment assignmentW = new WritingAssignment("", "", "The Causes of World War II");
+        // Assignment assignment3 = new Assignment("Mary Waters", "European History");
+        // assignment3.Display1();
+        WritingAssignment assignmentW = new WritingAssignment("Mary Waters", "European History", "The Causes of World War II");
+        assignmentW.Display1();
         Console.WriteLine(assignmentW.GetWritingInformation());
 
 
