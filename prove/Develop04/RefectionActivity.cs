@@ -1,9 +1,44 @@
 using System;
-class RefectionActivity
+using System.Collections.Generic;
+class RefectionActivity : Activity
 {
-    private string _activityName;
-    private string _description;
-    List<string> _prompts;
-    List<string> _reflectionStatements;
+    List<string> _reflectionStatements = new List<string>();
+    List<string> _prompts = new List<string>();
+    public RefectionActivity(string name, string description, int time) : base(name, description, time)
+    {
+
+    }
+    public string GetRandomPrompt()
+    {
+        Random random = new Random();
+        _prompts.Add("Think of a time when you stood up for someone else.");
+        _prompts.Add("Think of a time when you did something really difficult.");
+        _prompts.Add("Think of a time when you helped someone in need.");
+        _prompts.Add("Think of a time when you did something truly selfless.");
+        int index = random.Next(_prompts.Count);
+        Console.WriteLine($"---{_prompts[index]}---");
+        return (_prompts[index]);
+
+    }
+    public string GetRandomQuestion()
+    {
+        Console.WriteLine("When you have something in mind, press enter to continue.");
+        Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
+        Console.WriteLine("You may begin in...");
+        Random rd = new Random();
+        _reflectionStatements.Add("Why was this experience meaningful to you?");
+        _reflectionStatements.Add("Have you ever done anything like this before?");
+        _reflectionStatements.Add("How did you get started?");
+        _reflectionStatements.Add("How did you feel when it was complete?");
+        _reflectionStatements.Add("What made this time different than other times when you were not as successful?");
+        _reflectionStatements.Add("What is your favorite thing about this experience?");
+        _reflectionStatements.Add("What could you learn from this experience that applies to other situations?");
+        _reflectionStatements.Add("What did you learn about yourself through this experience?");
+        _reflectionStatements.Add("How can you keep this experience in mind in the future?");
+
+        int index = rd.Next(_reflectionStatements.Count);
+        Console.WriteLine($"---{_reflectionStatements[index]}---");
+        return (_reflectionStatements[index]);
+    }
 
 }
