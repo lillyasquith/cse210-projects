@@ -31,10 +31,40 @@ class Activity
     public void PauseSpinner()
     {
         Console.WriteLine("Get Ready...");
-        Thread.Sleep(1000);
-        // Console.WriteLine("I'm back!!");
+        DateTime currentTime = DateTime.Now;
+        DateTime futureTime = currentTime.AddSeconds(10);
+        while (currentTime < futureTime)
+        {
+            currentTime = DateTime.Now;
+            Console.Write("|");
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+            Console.Write("/");
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+            Console.Write("-");
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+            Console.Write("\\");
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+        }
     }
+    public void TimerCount()
+    {
+        int numberOfSecond = 4;
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(5000);
 
+        Console.Write("We have not arrived at our future time yet...");
+        while (numberOfSecond >= 1)
+        {
+            Console.Write($"{numberOfSecond}");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+            numberOfSecond = numberOfSecond - 1;
+        }
+    }
     public void WelcomeMessageDisplay()
     {
         Console.WriteLine($"{_introMessage} {_activityName}!");
@@ -49,4 +79,8 @@ class Activity
         Console.WriteLine($"\nYou have completed another {_activityDuration} seconds of the {_activityName}.");
     }
 
+
 }
+
+
+
