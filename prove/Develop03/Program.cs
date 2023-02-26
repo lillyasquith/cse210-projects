@@ -16,10 +16,19 @@ class Program
         // word.HideWord();
         // word.WriteWord();
         //Test Scripture class
-        Scripture scripture = new Scripture();
+        string _book = "Provebs";
+        int _chapter = 3;
+        int _verseStart = 5;
+        int _verseEnd = 6;
+        Reference reference = new Reference(_book, _chapter, _verseStart, _verseEnd);
+        Scripture scripture = new Scripture(reference);
         string userChoice = "";
-        while (userChoice != "quit")
+        // while (true)
+        while (userChoice != "quit") // || check if the ruten value of our CheckAllWords = true
         {
+            // if statement
+            // call checkallwords
+            // break if false
             scripture.Display();
             Console.WriteLine();
             Console.WriteLine("\nPress enter to continue or type 'quit' to finish:");
@@ -32,6 +41,7 @@ class Program
             }
             else
             {
+                // break
                 Console.WriteLine("You got this!");
             }
 

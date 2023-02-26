@@ -11,8 +11,8 @@ class Word
     {
         _isHidden = false;
         _visibleWord = word;
-        _hiddenWord = "_";
-
+        foreach (char letter in word)
+            _hiddenWord = _hiddenWord + "_";
     }
     public void WriteWord()
     {
@@ -31,6 +31,10 @@ class Word
     {
         _isHidden = true;
     }
+
+    // getter method to return IsHidden
+
+
     // Practice with Getters and Setters
     // public string GetVisibleWord()
     // {
