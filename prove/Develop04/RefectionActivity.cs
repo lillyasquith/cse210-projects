@@ -4,7 +4,7 @@ class RefectionActivity : Activity
 {
     List<string> _reflectionStatements = new List<string>();
     List<string> _reflectionPrompts = new List<string>();
-    public RefectionActivity(string name, string description, int time) : base(name, description, time)
+    public RefectionActivity(string name, string description) : base(name, description)
     {
 
     }

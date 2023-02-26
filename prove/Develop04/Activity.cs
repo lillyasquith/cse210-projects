@@ -6,33 +6,24 @@ class Activity
     protected int _activityDuration;
     private string _outroMessage;
 
-    public Activity(string name, string description, int time)
+    public Activity(string name, string description)
     {
         _activityName = name;
-        _introMessage = "Welcome to the";
+        _introMessage = "\nWelcome to the";
         _activityDescription = description;
-        _activityDuration = time;
         _outroMessage = "Weldone!!";
     }
-    // public string GetActivityName()
-    // {
-    //     return _activityName;
-    // }
-    // public string GetActivityDescription()
-    // {
-    //     return _activityDescription;
-    // }
-    public int ActivityDuration()
+    public void ActivityDuration()
     {
         Console.Write("\nHow long, in second, would you like for your session? ");
-        int time = int.Parse(Console.ReadLine());
-        return time;
+        int t = int.Parse(Console.ReadLine());
+        _activityDuration = t;
     }
-    public void PauseSpinner()
+    public void Animation()
     {
-        Console.WriteLine("Get Ready...");
+        Console.WriteLine("Get Ready...\n");
         DateTime currentTime = DateTime.Now;
-        DateTime futureTime = currentTime.AddSeconds(10);
+        DateTime futureTime = currentTime.AddSeconds(1);
         while (currentTime < futureTime)
         {
             currentTime = DateTime.Now;
@@ -50,13 +41,20 @@ class Activity
             Console.Write("\b \b");
         }
     }
-    public void TimerCount()
+    protected void CountDown(int numberOfSecond)
     {
-        int numberOfSecond = 4;
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(5000);
+        // int numberOfSecond = 5;
+        // DateTime startTime = DateTime.Now;
+        // DateTime futureTime = startTime.AddSeconds(_activityDuration);
 
-        Console.Write("We have not arrived at our future time yet...");
+        // Console.Write("We have not arrived at our future time yet...");
+        // while (numberOfSecond >= 1)
+        // {
+        //     Console.Write($"{numberOfSecond}");
+        //     Thread.Sleep(1000);
+        //     Console.Write("\b \b");
+        //     numberOfSecond = numberOfSecond - 1;
+        // }
         while (numberOfSecond >= 1)
         {
             Console.Write($"{numberOfSecond}");
