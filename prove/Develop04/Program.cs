@@ -5,6 +5,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        //test Activity class.
+        // Activity activity = new Activity("", "", 0);
+        // activity.WelcomeMessageDisplay();
+        // activity.DescriptionDisplay();
+        // activity.ActivityDuration();
+        // activity.PauseSpinner();
+        // activity.EndingMessageDisplay();
         Console.WriteLine("Menu Options:");
         string userChoice = "";
         string[] choices =
@@ -21,46 +28,48 @@ class Program
         Console.Write("Select a choice from the menu: ");
         userChoice = Console.ReadLine();
 
-        if (userChoice == "1")
+        while (userChoice != "4")
         {
-            BreathingActivity activity2 = new BreathingActivity("Breathing Activity", "\nThis activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
-            activity2.WelcomeMessageDisplay();
-            activity2.DescriptionDisplay();
-            activity2.ActivityDuration();
-            activity2.Animation();
-            activity2.RunProgram();
-            activity2.EndingMessageDisplay();
+            if (userChoice == "1")
+            {
+                BreathingActivity activity1 = new BreathingActivity("Breathing Activity", "\nThis activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
+                activity1.WelcomeMessageDisplay();
+                activity1.DescriptionDisplay();
+                activity1.ActivityDuration();
+                activity1.Animation();
+                activity1.RunProgram();
+                activity1.EndingMessageDisplay();
+            }
+            else if (userChoice == "2")
+            {
+                RefectionActivity activity2 = new RefectionActivity("RefectionActivity", "\nThis activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
+                activity2.WelcomeMessageDisplay();
+                activity2.DescriptionDisplay();
+                activity2.ActivityDuration();
+                activity2.Animation();
+                activity2.GetRandomPrompt();
+                activity2.EndingMessageDisplay();
+            }
+            else if (userChoice == "3")
+            {
+                ListingActivity activity3 = new ListingActivity(0, "ListingActivity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
+                activity3.WelcomeMessageDisplay();
+                activity3.DescriptionDisplay();
+                activity3.ActivityDuration();
+                activity3.Animation();
+                activity3.RandomListingPrompt();
+                activity3.CountAnswer();
+                activity3.EndingMessageDisplay();
+            }
+            else
+            {
+                Console.WriteLine("Invalid option. Please choose again!");
+            }
+            break;
         }
-
-        //test Activity class.
-        // Activity activity1 = new Activity("", "", 0);
-        // activity1.WelcomeMessageDisplay();
-        // activity1.DescriptionDisplay();
-        // activity1.ActivityDuration();
-        // activity1.PauseSpinner();
-        // activity1.EndingMessageDisplay();
-
-        //test Breathing Activity class.
-        // 
-
-        // RefectionActivity activity3 = new RefectionActivity("RefectionActivity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.", 0);
-        // activity3.WelcomeMessageDisplay();
-        // activity3.DescriptionDisplay();
-        // activity3.ActivityDuration();
-        // activity3.TimerCount();
-        // activity3.GetRandomPrompt();
-        // activity3.EndingMessageDisplay();
-        if (userChoice == "3")
+        if (userChoice == "4")
         {
-            ListingActivity activity3 = new ListingActivity(0, "ListingActivity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
-            activity3.WelcomeMessageDisplay();
-            activity3.DescriptionDisplay();
-            activity3.ActivityDuration();
-            activity3.Animation();
-            activity3.RandomListingPrompt();
-            activity3.CountAnswer();
-            activity3.EndingMessageDisplay();
+            Console.WriteLine("See you again!");
         }
-
     }
 }
