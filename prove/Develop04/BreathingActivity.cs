@@ -12,19 +12,18 @@ class BreathingActivity : Activity
         DateTime futureTime = startTime.AddSeconds(_activityDuration);
         while (DateTime.Now <= futureTime)
         {
-            BreathCycle("Breath in...");
-            BreathCycle("Now Breath out...");
+            BreathCycle("\nBreathe in...");
             Console.WriteLine();
-
+            BreathCycle("Now breathe out...");
+            Console.WriteLine();
         }
     }
     private void BreathCycle(string text)
     {
         Random rd = new Random();
-        // int numberOfSecond = rd.Next(2, 5);
+        // int numberOfSecond = rd.Next(2, 3);
         Console.Write($"{text}");
         CountDown(rd.Next(2, 5));
-        Console.WriteLine();
     }
 
 

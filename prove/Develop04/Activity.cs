@@ -9,7 +9,7 @@ class Activity
     public Activity(string name, string description)
     {
         _activityName = name;
-        _introMessage = "\nWelcome to the";
+        _introMessage = "Welcome to the";
         _activityDescription = description;
         _outroMessage = "Weldone!!";
     }
@@ -18,31 +18,34 @@ class Activity
         Console.Write("\nHow long, in second, would you like for your session? ");
         int t = int.Parse(Console.ReadLine());
         _activityDuration = t;
+        Console.Write("Get Ready...");
+        Console.WriteLine();
     }
+
     public void Animation()
     {
-        Console.WriteLine("Get Ready...\n");
         DateTime currentTime = DateTime.Now;
-        DateTime futureTime = currentTime.AddSeconds(1);
+        DateTime futureTime = currentTime.AddSeconds(1); ;
         while (currentTime < futureTime)
         {
             currentTime = DateTime.Now;
             Console.Write("|");
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
             Console.Write("\b \b");
             Console.Write("/");
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
             Console.Write("\b \b");
             Console.Write("-");
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
             Console.Write("\b \b");
             Console.Write("\\");
-            Thread.Sleep(500);
+            Thread.Sleep(1000);
             Console.Write("\b \b");
         }
     }
     protected void CountDown(int numberOfSecond)
     {
+        //test
         // int numberOfSecond = 5;
         // DateTime startTime = DateTime.Now;
         // DateTime futureTime = startTime.AddSeconds(_activityDuration);
@@ -65,16 +68,21 @@ class Activity
     }
     public void WelcomeMessageDisplay()
     {
+        Console.WriteLine();
         Console.WriteLine($"{_introMessage} {_activityName}!");
     }
     public void DescriptionDisplay()
     {
+        Console.WriteLine();
         Console.WriteLine($"{_activityDescription}");
     }
     public void EndingMessageDisplay()
     {
+        Console.WriteLine();
         Console.WriteLine($"{_outroMessage}");
+        Animation();
         Console.WriteLine($"\nYou have completed another {_activityDuration} seconds of the {_activityName}.");
+        Animation();
     }
 
 

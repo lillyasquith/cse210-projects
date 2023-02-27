@@ -42,22 +42,25 @@ class Program
             }
             else if (userChoice == "2")
             {
-                RefectionActivity activity2 = new RefectionActivity("RefectionActivity", "\nThis activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
+                RefectingActivity activity2 = new RefectingActivity("Refecting Activity", "\nThis activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
                 activity2.WelcomeMessageDisplay();
                 activity2.DescriptionDisplay();
                 activity2.ActivityDuration();
                 activity2.Animation();
                 activity2.GetRandomPrompt();
+                activity2.ToBegin2();
+                activity2.GetRandomQuestion();
                 activity2.EndingMessageDisplay();
             }
             else if (userChoice == "3")
             {
-                ListingActivity activity3 = new ListingActivity(0, "ListingActivity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
+                ListingActivity activity3 = new ListingActivity(0, "Listing Activity", "\nThis activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.");
                 activity3.WelcomeMessageDisplay();
                 activity3.DescriptionDisplay();
                 activity3.ActivityDuration();
                 activity3.Animation();
                 activity3.RandomListingPrompt();
+                activity3.ToBegin3();
                 activity3.CountAnswer();
                 activity3.EndingMessageDisplay();
             }
