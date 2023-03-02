@@ -23,12 +23,9 @@ class Program
         Reference reference = new Reference(_book, _chapter, _verseStart, _verseEnd);
         Scripture scripture = new Scripture(reference);
         string userChoice = "";
-        // while (true)
-        while (userChoice != "quit") // || check if the return value of our CheckAllWords = true
+
+        while (userChoice != "quit")
         {
-            // if statement
-            // call checkallwords
-            // break if false
             scripture.Display();
             Console.WriteLine();
             Console.WriteLine("\nPress enter to continue or type 'quit' to finish:");
@@ -46,7 +43,6 @@ class Program
             }
             else
             {
-                // break
                 Console.WriteLine("You got this!");
             }
 

@@ -35,14 +35,19 @@ class Scripture
         scriptures[i].HideWord();
     }
 
-    // new method to check if all words are hidden
-    // CheckAllWords
-    //  iterate through word list
-    //  call the getIsHidden method to check if the word is hidden or not
-    //      if getHiddenWord == true
-    //          return true
-    //      else 
-    //          false
+    //This function will check if all words disappear and close the program.
+    public Boolean CheckAllWords()
+    {
+        foreach (Word word in scriptures)
+        {
+            if (word.GetIsHidden() == true)
+            {
 
+            }
+            else
+                return false;
+        }
+        return true;
+    }
 }
 

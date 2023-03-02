@@ -32,8 +32,11 @@ class Word
         _isHidden = true;
     }
 
-    // getter method to return IsHidden
-
+    // getter method to return IsHidden for CheckAllWords function.
+    public bool GetIsHidden()
+    {
+        return _isHidden;
+    }
 
     // Practice with Getters and Setters
     // public string GetVisibleWord()
