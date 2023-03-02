@@ -30,6 +30,7 @@ class Program
 
         if (userChoice != "4")
         {
+
             if (userChoice == "1")
             {
                 BreathingActivity activity1 = new BreathingActivity("Breathing Activity", "\nThis activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
@@ -68,7 +69,6 @@ class Program
             {
                 Console.WriteLine("Invalid option. Please choose again!");
             }
-
         }
         else
         {
