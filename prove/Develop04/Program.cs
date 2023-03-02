@@ -28,7 +28,7 @@ class Program
         Console.Write("Select a choice from the menu: ");
         userChoice = Console.ReadLine();
 
-        while (userChoice != "4")
+        if (userChoice != "4")
         {
             if (userChoice == "1")
             {
@@ -68,9 +68,9 @@ class Program
             {
                 Console.WriteLine("Invalid option. Please choose again!");
             }
-            break;
+
         }
-        if (userChoice == "4")
+        else
         {
             Console.WriteLine("See you again!");
         }
