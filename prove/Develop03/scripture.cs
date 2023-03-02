@@ -35,7 +35,7 @@ class Scripture
         scriptures[i].HideWord();
     }
 
-    //This function will check if all words disappear and close the program.
+    //This boolean function will check if all words disappear and close the program.
     public Boolean CheckAllWords()
     {
         foreach (Word word in scriptures)

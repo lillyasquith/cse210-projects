@@ -12,7 +12,7 @@ class Reference
         _verseStart = verse;
     }
 
-    //encapsulates the responsibilities of a Reference (including handling multiple verses)
+    //adjust the responsibilities of a Reference (including handling multiple verses)
     public Reference(string book, int chapter, int verse, int verseEnd)
     {
         _book = book;

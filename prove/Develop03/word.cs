@@ -32,7 +32,7 @@ class Word
         _isHidden = true;
     }
 
-    // getter method to return IsHidden for CheckAllWords function.
+    // created the getter method to return IsHidden for CheckAllWords function.
     public bool GetIsHidden()
     {
         return _isHidden;
