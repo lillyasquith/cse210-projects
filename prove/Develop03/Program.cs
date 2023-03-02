@@ -24,7 +24,7 @@ class Program
         Scripture scripture = new Scripture(reference);
         string userChoice = "";
         // while (true)
-        while (userChoice != "quit") // || check if the ruten value of our CheckAllWords = true
+        while (userChoice != "quit") // || check if the return value of our CheckAllWords = true
         {
             // if statement
             // call checkallwords
@@ -38,6 +38,11 @@ class Program
             {
                 Console.Clear();
                 scripture.HideRandomText();
+
+                if (scripture.CheckAllWords())
+                {
+                    break;
+                }
             }
             else
             {
