@@ -14,22 +14,25 @@ class Program
         // activity.EndingMessageDisplay();
         Console.WriteLine("Menu Options:");
         string userChoice = "";
-        string[] choices =
-        {
-        "1.Start breathing activity",
-        "2.Start refecting activity",
-        "3.Start listing activity",
-        "4.Quit"
-        };
-        foreach (string i in choices)
-        {
-            Console.WriteLine(i);
-        }
-        Console.Write("Select a choice from the menu: ");
-        userChoice = Console.ReadLine();
 
-        if (userChoice != "4")
+        // Change if statement to while loop so that after each activity,
+        // we can go back to the menu.
+        while (userChoice != "4")
         {
+            Console.WriteLine();
+            string[] choices =
+            {
+            "1.Start breathing activity",
+            "2.Start refecting activity",
+            "3.Start listing activity",
+            "4.Quit"
+            };
+            foreach (string i in choices)
+            {
+                Console.WriteLine(i);
+            }
+            Console.Write("Select a choice from the menu: ");
+            userChoice = Console.ReadLine();
 
             if (userChoice == "1")
             {
@@ -65,14 +68,14 @@ class Program
                 activity3.CountAnswer();
                 activity3.EndingMessageDisplay();
             }
+            else if (userChoice == "4")
+            {
+                Console.WriteLine("See you again!");
+            }
             else
             {
                 Console.WriteLine("Invalid option. Please choose again!");
             }
-        }
-        else
-        {
-            Console.WriteLine("See you again!");
         }
     }
 }
