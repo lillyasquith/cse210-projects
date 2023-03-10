@@ -2,13 +2,12 @@ using System;
 
 class Goal
 {
-    protected string _typeOfGoal;
     protected string _goalName;
     protected string _description;
-    private int _point;
-    private bool _checkmark;
-    private string _input;
-    public List<Goal> _goals = new List<Goal>();
+    protected int _point;
+    protected bool _isComplete;
+    protected string _input;
+
 
     public Goal()
     {
@@ -17,21 +16,17 @@ class Goal
 
     public void WriteGoal()
     {
-        _goalName = "What is the name of your goal? ";
-        Console.WriteLine(_goalName);
+        Console.Write("What is the name of your goal? ");
         _input = Console.ReadLine();
-        _description = "What is a short description of it? ";
-        Console.WriteLine(_description);
-        _input = Console.ReadLine();
-        Console.Write($"What is the amount of points associated with this goal? {_point}");
-        _input = Console.ReadLine();
-    }
+        _goalName = _input;
 
-    public void AddGoal()
-    {
-        Goal goal = new Goal();
-        goal.WriteGoal();
-        _goals.Add(goal);
+        Console.Write("What is a short description of it? ");
+        _input = Console.ReadLine();
+        _description = _input;
+
+        Console.Write("What is the amount of points associated with this goal? ");
+        _input = Console.ReadLine();
+        _point = int.Parse(_input);
     }
 
     public void SaveGoal()
@@ -44,14 +39,20 @@ class Goal
 
     }
 
-    public void RecordEvent()
+    public virtual int RecordEvent()
     {
-
-    }
-    public void DisplayGoal()
-    {
-        Console.WriteLine($"{_checkmark} {_goalName} {(_description)}");
+        _isComplete = true;
+        return _point;
     }
 
+    public virtual void DisplayGoal()
+    {
+        if (_isComplete == true)
+        {
+            Console.WriteLine($"[X] {_goalName} ({_description})");
+        }
+        else
+            Console.WriteLine($"[ ] {_goalName} ({_description})");
+    }
 
 }

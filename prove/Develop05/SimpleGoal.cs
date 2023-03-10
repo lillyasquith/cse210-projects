@@ -1,6 +1,21 @@
 using System;
 
-class SimpleGoal
+class SimpleGoal : Goal
 {
+
+    public SimpleGoal()
+    {
+
+    }
+
+    public override int RecordEvent()
+    {
+        return base.RecordEvent();
+    }
+
+    public void DisplaySimpleGoal()
+    {
+        DisplayGoal();
+    }
 
 }
