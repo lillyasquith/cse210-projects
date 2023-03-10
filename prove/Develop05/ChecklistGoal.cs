@@ -45,10 +45,10 @@ class ChecklistGoal : Goal
     {
         if (_isComplete == true)
         {
-            Console.WriteLine($"[X] {_goalName} {(_description)} -- Curruntly completed: {_trackAccomplish}/{timesOfAccomplish}");
+            Console.WriteLine($"[X] {_goalName} {(_description)} -- Curruntly completed: {_trackAccomplish}/{_timesOfAccomplish}");
         }
         else
-            Console.WriteLine($"[ ] {_goalName} {(_description)} -- Curruntly completed: {_trackAccomplish}/{timesOfAccomplish}");
+            Console.WriteLine($"[ ] {_goalName} {(_description)} -- Curruntly completed: {_trackAccomplish}/{_timesOfAccomplish}");
 
 
     }
