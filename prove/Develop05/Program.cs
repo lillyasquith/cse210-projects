@@ -37,7 +37,8 @@ class Program
         ChecklistGoal checklistGoal = new ChecklistGoal();
         checklistGoal.WriteCheclistGoal();
         checklistGoal.DisplayGoal();
-        checklistGoal.CheckBonus();
+        // totalPoint += checklistGoal.RecordEvent();
+        // Console.WriteLine($"Congratulations! You have earned {totalPoint} points.");
 
 
 

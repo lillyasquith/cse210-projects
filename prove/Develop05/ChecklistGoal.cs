@@ -3,10 +3,9 @@ using System;
 class ChecklistGoal : Goal
 {
 
-    private int _timeAccomplish;
+    private int _timesOfAccomplish;
+    private int _trackAccomplish;
     private int _bonus;
-    private string _inputC;
-    //private int _track;?
 
     public ChecklistGoal()
     {
@@ -17,34 +16,40 @@ class ChecklistGoal : Goal
     {
         WriteGoal();
         Console.Write("How many times does this goal need to be accomplished for a bonus? ");
-        _inputC = Console.ReadLine();
-        _timeAccomplish = int.Parse(_inputC);
+        string _inputC = Console.ReadLine();
+        _timesOfAccomplish = int.Parse(_inputC);
         Console.Write("What is the bonus for accomplishing it that many times? ");
         _inputC = Console.ReadLine();
         _bonus = int.Parse(_inputC);
     }
-    public void CheckBonus()
-    {
-        foreach (int i in Enumerable.Range(0, _timeAccomplish))
-        {
-            Console.WriteLine(i + $"/{_timeAccomplish}");
-        }
-
-    }
 
     public override int RecordEvent()
     {
-        return base.RecordEvent();
-
+        return TrackAccomplish();
     }
-    public override void DisplayGoal()
-    {
 
-        if (_isComplete == true)
+    public int TrackAccomplish()
+    {
+        if (_trackAccomplish != _timesOfAccomplish)
         {
-            Console.WriteLine($"[X] {_goalName} {(_description)} -- Curruntly completed: {_timeAccomplish}");
+            return _point;
         }
         else
-            Console.WriteLine($"[ ] {_goalName} {(_description)} -- Curruntly completed: {_timeAccomplish}");
+        {
+            return _point + _bonus;
+        }
+
+    }
+
+    public override void DisplayGoal()
+    {
+        if (_isComplete == true)
+        {
+            Console.WriteLine($"[X] {_goalName} {(_description)} -- Curruntly completed: {_trackAccomplish}/{timesOfAccomplish}");
+        }
+        else
+            Console.WriteLine($"[ ] {_goalName} {(_description)} -- Curruntly completed: {_trackAccomplish}/{timesOfAccomplish}");
+
+
     }
 }
