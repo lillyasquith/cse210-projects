@@ -7,15 +7,9 @@ class EternalGoal : Goal
     {
 
     }
-
-    public override int RecordEvent()
+    public override void DisplayGoal(int cnt)
     {
-        return base.RecordEvent();
-    }
-
-    public void DisplayEternalGoal()
-    {
-        Console.WriteLine($"[ ] {_goalName} {(_description)}");
+        Console.WriteLine($"{cnt}. [ ] {_goalName} ({_description})");
     }
 
 }

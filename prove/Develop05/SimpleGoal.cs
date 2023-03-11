@@ -8,14 +8,4 @@ class SimpleGoal : Goal
 
     }
 
-    public override int RecordEvent()
-    {
-        return base.RecordEvent();
-    }
-
-    public void DisplaySimpleGoal()
-    {
-        DisplayGoal();
-    }
-
 }
