@@ -27,7 +27,7 @@ class ChecklistGoal : Goal
         Console.Write("What is the bonus for accomplishing it that many times? ");
         _inputC = Console.ReadLine();
         _bonus = int.Parse(_inputC);
-        _trackTimes = 0;
+
     }
 
     public override int RecordEvent()
@@ -49,9 +49,9 @@ class ChecklistGoal : Goal
     {
         if (_isComplete == true)
         {
-            Console.WriteLine($"{cnt}. [X] {_goalName} ({_description}) -- Curruntly completed: {_trackTimes}/{_timesOfAccomplish}");
+            Console.WriteLine($"{cnt}. [X] {_goalName} ({_description}) -- Curruntly completed: {_trackTimes++}/{_timesOfAccomplish}");
         }
         else
-            Console.WriteLine($"{cnt}. [ ] {_goalName} ({_description}) -- Curruntly completed: {_trackTimes}/{_timesOfAccomplish}");
+            Console.WriteLine($"{cnt}. [ ] {_goalName} ({_description}) -- Curruntly completed: {_trackTimes++}/{_timesOfAccomplish}");
     }
 }

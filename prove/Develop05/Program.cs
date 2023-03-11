@@ -5,8 +5,6 @@ class Program
     static void Main(string[] args)
     {
         int totalPoint = 0;
-        Console.WriteLine($"You have {totalPoint} points.");
-        Console.WriteLine();
 
         //test Goal class
         Goal goal = new Goal();
@@ -34,6 +32,9 @@ class Program
 
         while (menuChoice != "6")
         {
+            Console.WriteLine();
+            Console.WriteLine($"You have {totalPoint} points.");
+            Console.WriteLine();
             Console.WriteLine("Menu Options:");
             string[] choices =
             {
@@ -87,7 +88,6 @@ class Program
                     cnt++;
                     g.DisplayGoal(cnt);
                 }
-
             }
             else if (menuChoice == "3")
             {
@@ -99,33 +99,34 @@ class Program
             }
             else if (menuChoice == "5")
             {
+                int cnt = 0;
+                cnt++;
                 Console.Write("Which goal did you accomplish? ");
                 goalChoice = Console.ReadLine();
                 if (goalChoice == "1")
                 {
                     simpleGoal.RecordEvent();
+                    totalPoint += simpleGoal.RecordEvent();
+                    simpleGoal.DisplayGoal(cnt);
                 }
                 else if (goalChoice == "2")
                 {
                     eternalGoal.RecordEvent();
+                    totalPoint += eternalGoal.RecordEvent();
+                    eternalGoal.DisplayGoal(cnt);
                 }
                 else if (goalChoice == "3")
                 {
                     checklistGoal.RecordEvent();
+                    totalPoint += checklistGoal.RecordEvent();
+                    checklistGoal.DisplayGoal(cnt);
                 }
                 else
                 {
                     Console.WriteLine("Invalid option. Please choose again!");
                 }
-                int cnt = 0;
-                foreach (Goal g in goals)
-                {
-                    cnt++;
-                    g.DisplayGoal(cnt);
-                    totalPoint += g.RecordEvent();
-                }
                 Console.WriteLine($"Congratulations! You have earned {totalPoint} points.");
-                Console.WriteLine();
+
             }
             else if (menuChoice == "6")
             {
