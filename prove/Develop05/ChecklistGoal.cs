@@ -8,12 +8,12 @@ class ChecklistGoal : Goal
 
     public ChecklistGoal()
     {
-
+        _goalType = "ChecklistGoal";
     }
     public override void WriteGoal()
     {
         Console.Write("What is the name of your goal? ");
-        _input = Console.ReadLine();
+        string _input = Console.ReadLine();
         _goalName = _input;
         Console.Write("What is a short description of it? ");
         _input = Console.ReadLine();
@@ -27,10 +27,9 @@ class ChecklistGoal : Goal
         Console.Write("What is the bonus for accomplishing it that many times? ");
         _inputC = Console.ReadLine();
         _bonus = int.Parse(_inputC);
-
     }
 
-    public override int RecordEvent()
+    public override int RecordEvent(List<Goal> goals)
     {
         return TrackAccomplish();
     }
@@ -45,13 +44,38 @@ class ChecklistGoal : Goal
             return _point + _bonus;
         }
     }
-    public override void DisplayGoal(int cnt)
+    public override void DisplayGoal()
     {
         if (_isComplete == true)
         {
-            Console.WriteLine($"{cnt}. [X] {_goalName} ({_description}) -- Curruntly completed: {_trackTimes++}/{_timesOfAccomplish}");
+            Console.WriteLine($" [X] {_goalName} ({_description}) -- Curruntly completed: {_trackTimes}/{_timesOfAccomplish}");
         }
         else
-            Console.WriteLine($"{cnt}. [ ] {_goalName} ({_description}) -- Curruntly completed: {_trackTimes++}/{_timesOfAccomplish}");
+            Console.WriteLine($" [ ] {_goalName} ({_description}) -- Curruntly completed: {_trackTimes}/{_timesOfAccomplish}");
+    }
+
+    public override string Serialize()
+    {
+        string info = "";
+        info += $"{_goalType}:";
+        info += $"{_goalName}>";
+        info += $"{_description}>";
+        info += $"{_point}>";
+        info += $"{_bonus}>";
+        info += $"{_isComplete}>";
+        info += $"{_timesOfAccomplish}>";
+        info += $"{_trackTimes}>";
+        return info;
+    }
+    public override void Deserialize(string line)
+    {
+        string[] parts = line.Split(">");
+        _goalName = parts[1];
+        _description = parts[2];
+        _point = int.Parse(parts[3]);
+        _bonus = int.Parse(parts[4]);
+        _isComplete = bool.Parse(parts[5]);
+        _timesOfAccomplish = int.Parse(parts[6]);
+        _trackTimes = int.Parse(parts[7]);
     }
 }

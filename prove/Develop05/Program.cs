@@ -2,6 +2,45 @@ using System;
 
 class Program
 {
+    static void LoadGoal(List<Goal> goals)// load all the goals that were saved.
+    {
+        string fName = "";
+        string[] lines = System.IO.File.ReadAllLines(fName);
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(":");
+            if (parts[0] == "SimpleGoal")
+            {
+                SimpleGoal simple = new SimpleGoal();
+                simple.Deserialize(parts[1]);
+                goals.Add(simple);// add simple object to the list
+            }
+            else if (parts[0] == "EternalGoal")
+            {
+                EternalGoal eternal = new EternalGoal();
+                eternal.Deserialize(parts[1]);
+                goals.Add(eternal);
+            }
+            else if (parts[0] == "ChecklistGoal")
+            {
+                ChecklistGoal checklist = new ChecklistGoal();
+                checklist.Deserialize(parts[1]);
+                goals.Add(checklist);
+            }
+        }
+        Console.WriteLine("Press any key to exit.");
+        System.Console.ReadKey();
+    }
+    static void SaveGoal(List<Goal> goals)
+    {
+        Console.Write("What is the file name? ");
+        string fileName = Console.ReadLine();
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+            foreach (Goal goal in goals)
+            {
+                outputFile.WriteLine(goal.Serialize());
+            }
+    }
     static void Main(string[] args)
     {
         int totalPoint = 0;
@@ -12,20 +51,8 @@ class Program
         // goal.DisplayGoal();
         // totalPoint += goal.RecordEvent();
         // goal.DisplayGoal();
-        // Console.WriteLine($"You have {totalPoint} points.");
-
-        SimpleGoal simpleGoal = new SimpleGoal();
-        EternalGoal eternalGoal = new EternalGoal();
-        ChecklistGoal checklistGoal = new ChecklistGoal();
-        // checklistGoal.WriteCheclistGoal();
-        // checklistGoal.DisplayGoal();
-        // totalPoint += checklistGoal.RecordEvent();
-        // Console.WriteLine($"Congratulations! You have earned {totalPoint} points.");
-
+        // Console.WriteLine($""Congratulations! You have earned {totalPoint} points.");
         List<Goal> goals = new List<Goal>();
-        //goals.Add(simpleGoal);
-        //goals.Add(eternalGoal);
-        //goals.Add(checklistGoal);
 
         string menuChoice = "";
         string goalChoice = "";
@@ -55,21 +82,33 @@ class Program
             if (menuChoice == "1")
             {
                 Console.WriteLine("The types of Goals are: ");
-                goal.GoalType();
+                string[] _goalType =
+                {
+                    "1.Simple Goal",
+                    "2.Eternal Goal",
+                    "3.Checklist Goal",
+                };
+                foreach (string i in _goalType)
+                {
+                    Console.WriteLine(i);
+                }
                 Console.Write("The type of goal would you like to create: ");
                 goalChoice = Console.ReadLine();
                 if (goalChoice == "1")
                 {
+                    SimpleGoal simpleGoal = new SimpleGoal();
                     simpleGoal.WriteGoal();
                     goals.Add(simpleGoal);
                 }
                 else if (goalChoice == "2")
                 {
+                    EternalGoal eternalGoal = new EternalGoal();
                     eternalGoal.WriteGoal();
                     goals.Add(eternalGoal);
                 }
                 else if (goalChoice == "3")
                 {
+                    ChecklistGoal checklistGoal = new ChecklistGoal();
                     checklistGoal.WriteGoal();
                     goals.Add(checklistGoal);
                 }
@@ -77,56 +116,45 @@ class Program
                 {
                     Console.WriteLine("Invalid option. Please choose again!");
                 }
-
             }
             else if (menuChoice == "2")
             {
                 Console.WriteLine("The goals are: ");
-                int cnt = 0;
-                foreach (Goal g in goals)
+                for (int i = 0; i < goals.Count(); i++)
                 {
-                    cnt++;
-                    g.DisplayGoal(cnt);
+                    int count = i + 1;
+                    Console.Write($"{count}.");
+                    goals[i].DisplayGoal();
                 }
+                // int cnt = 0;//This is another way to display
+                // foreach (Goal g in goals)
+                // {
+                //     cnt++;
+                //     g.DisplayGoal(cnt);
+                // }
             }
             else if (menuChoice == "3")
             {
-                goal.SaveGoal(goals);
+                SaveGoal(goals);
             }
             else if (menuChoice == "4")
             {
-                goal.LoadGoal(goals);
+                LoadGoal(goals);
             }
             else if (menuChoice == "5")
             {
-                int cnt = 0;
-                cnt++;
                 Console.Write("Which goal did you accomplish? ");
-                goalChoice = Console.ReadLine();
-                if (goalChoice == "1")
+                Console.WriteLine("The goals are: ");
+                for (int i = 0; i < goals.Count(); i++)
                 {
-                    simpleGoal.RecordEvent();
-                    totalPoint += simpleGoal.RecordEvent();
-                    simpleGoal.DisplayGoal(cnt);
+                    int count = i + 1;
+                    Console.Write($"{count}.");
+                    goals[i].DisplayGoal();
                 }
-                else if (goalChoice == "2")
-                {
-                    eternalGoal.RecordEvent();
-                    totalPoint += eternalGoal.RecordEvent();
-                    eternalGoal.DisplayGoal(cnt);
-                }
-                else if (goalChoice == "3")
-                {
-                    checklistGoal.RecordEvent();
-                    totalPoint += checklistGoal.RecordEvent();
-                    checklistGoal.DisplayGoal(cnt);
-                }
-                else
-                {
-                    Console.WriteLine("Invalid option. Please choose again!");
-                }
+                string gChoice = Console.ReadLine();
+                int goalChoiceInNumber = int.Parse(gChoice);
+                totalPoint += goals[goalChoiceInNumber].RecordEvent(goals);//choose the number to record the event. 
                 Console.WriteLine($"Congratulations! You have earned {totalPoint} points.");
-
             }
             else if (menuChoice == "6")
             {
