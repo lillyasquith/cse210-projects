@@ -29,7 +29,6 @@ class Goal
         _point = int.Parse(_input);
     }
 
-
     public virtual string Serialize()
     {
         return "";
@@ -38,9 +37,6 @@ class Goal
     {
 
     }
-
-
-
     public virtual int RecordEvent(List<Goal> goals)
     {
         _isComplete = true;
@@ -56,5 +52,4 @@ class Goal
         else
             Console.WriteLine($" [ ] {_goalName} ({_description})");
     }
-
 }

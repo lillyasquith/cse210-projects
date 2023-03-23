@@ -1,5 +1,5 @@
 using System;
-
+using System.IO;
 class ChecklistGoal : Goal
 {
     private int _timesOfAccomplish;
@@ -22,15 +22,21 @@ class ChecklistGoal : Goal
         _input = Console.ReadLine();
         _point = int.Parse(_input);
         Console.Write("How many times does this goal need to be accomplished for a bonus? ");
-        string _inputC = Console.ReadLine();
-        _timesOfAccomplish = int.Parse(_inputC);
+        _input = Console.ReadLine();
+        _timesOfAccomplish = int.Parse(_input);
         Console.Write("What is the bonus for accomplishing it that many times? ");
-        _inputC = Console.ReadLine();
-        _bonus = int.Parse(_inputC);
+        _input = Console.ReadLine();
+        _bonus = int.Parse(_input);
     }
 
     public override int RecordEvent(List<Goal> goals)
     {
+        if (_trackTimes > _timesOfAccomplish)//if function did not work, need to fix.
+        {
+            Console.WriteLine($"You only need to accomplish {_timesOfAccomplish} for a bonus.");
+        }
+        else
+            _trackTimes++;
         return TrackAccomplish();
     }
     public int TrackAccomplish()
@@ -70,12 +76,12 @@ class ChecklistGoal : Goal
     public override void Deserialize(string line)
     {
         string[] parts = line.Split(">");
-        _goalName = parts[1];
-        _description = parts[2];
-        _point = int.Parse(parts[3]);
-        _bonus = int.Parse(parts[4]);
-        _isComplete = bool.Parse(parts[5]);
-        _timesOfAccomplish = int.Parse(parts[6]);
-        _trackTimes = int.Parse(parts[7]);
+        _goalName = parts[0];
+        _description = parts[1];
+        _point = int.Parse(parts[2]);
+        _bonus = int.Parse(parts[3]);
+        _isComplete = bool.Parse(parts[4]);
+        _timesOfAccomplish = int.Parse(parts[5]);
+        _trackTimes = int.Parse(parts[6]);
     }
 }

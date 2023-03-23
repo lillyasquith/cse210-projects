@@ -4,7 +4,7 @@ class Program
 {
     static void LoadGoal(List<Goal> goals)// load all the goals that were saved.
     {
-        string fName = "";
+        string fName = "goals.txt";
         string[] lines = System.IO.File.ReadAllLines(fName);
         foreach (string line in lines)
         {
@@ -139,11 +139,10 @@ class Program
             }
             else if (menuChoice == "4")
             {
-                LoadGoal(goals);
+                LoadGoal(goals);//need to fix, it did not display any info.
             }
             else if (menuChoice == "5")
             {
-                Console.Write("Which goal did you accomplish? ");
                 Console.WriteLine("The goals are: ");
                 for (int i = 0; i < goals.Count(); i++)
                 {
@@ -151,9 +150,10 @@ class Program
                     Console.Write($"{count}.");
                     goals[i].DisplayGoal();
                 }
+                Console.Write("Which goal did you accomplish? ");
                 string gChoice = Console.ReadLine();
                 int goalChoiceInNumber = int.Parse(gChoice);
-                totalPoint += goals[goalChoiceInNumber].RecordEvent(goals);//choose the number to record the event. 
+                totalPoint += goals[goalChoiceInNumber - 1].RecordEvent(goals);//choose only the number to record the event. 
                 Console.WriteLine($"Congratulations! You have earned {totalPoint} points.");
             }
             else if (menuChoice == "6")
