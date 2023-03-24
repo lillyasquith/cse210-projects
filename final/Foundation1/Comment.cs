@@ -5,11 +5,14 @@ class Comment
     private string _personName;
     private string _text;
 
-    public Comment(string name, string text)
+    public Comment(string personName, string text)
     {
-        _personName = name;
+        _personName = personName;
         _text = text;
     }
 
-
+    public void DisplayComment()
+    {
+        Console.WriteLine($"({_personName}) -- {_text}");
+    }
 }
