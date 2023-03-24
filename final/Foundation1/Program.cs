@@ -12,6 +12,7 @@ class Program
         video1._comments.Add(comment1);
         video1._comments.Add(comment2);
         video1._comments.Add(comment3);
+        //or video1.AddComment(comment1);
 
 
         Video video2 = new Video("Giant Fruits", "Mr.Farmer", 185);

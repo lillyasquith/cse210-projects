@@ -8,5 +8,9 @@ class Program
         product.DisplayProduct();
         Console.WriteLine(product.ProductFee());
 
+        Address address = new Address("100 N 100 E", "Provo", "UT", "USA");
+        //address.DisplayAddress();
+        Customer customer = new Customer("Tony", address);
+        customer.DisplayCustomer();
     }
 }

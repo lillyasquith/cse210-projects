@@ -4,8 +4,9 @@ class Program
 {
     static void LoadGoal(List<Goal> goals)// load all the goals that were saved.
     {
-        string fName = "goals.txt";
-        string[] lines = System.IO.File.ReadAllLines(fName);
+        Console.Write("What is the file name? ");
+        string fileName = Console.ReadLine();
+        string[] lines = System.IO.File.ReadAllLines(fileName);
         foreach (string line in lines)
         {
             string[] parts = line.Split(":");

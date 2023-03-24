@@ -5,19 +5,17 @@ class Address
     private string _street;
     private string _city;
     private string _state;
-    private string _province;
     private string _country;
     private bool _inUSA;
 
-    public Address(string street, string city, string state, string province, string country)
+    public Address(string street, string city, string state, string country)
     {
         _street = street;
         _city = city;
         _state = state;
-        _province = province;
         _country = country;
     }
-    public Boolean InUSA()
+    public bool InUSA()
     {
         if (_inUSA == true)
         {
@@ -26,15 +24,22 @@ class Address
         else
             return false;
     }
+    public void DisplayAddress()
+    {
+        Console.WriteLine($"{_street}");
+        Console.WriteLine($"{_city}");
+        Console.WriteLine($"{_state}");
+        Console.WriteLine($"{_country}");
 
-    public string DisplayAddress()
+    }
+    public string CustomerAddress()
     {
         string address = "";
         address += $"{_street}";
         address += $"{_city}";
         address += $"{_state}";
-        address += $"{_province}";
         address += $"{_country}";
         return address;
     }
+
 }

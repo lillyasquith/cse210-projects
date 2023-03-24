@@ -31,11 +31,13 @@ class ChecklistGoal : Goal
 
     public override int RecordEvent(List<Goal> goals)
     {
-        if (_trackTimes > _timesOfAccomplish)//if function did not work, need to fix.
+        if (_trackTimes >= _timesOfAccomplish)//the user can not earn more points if he finish this goal.
         {
             Console.WriteLine($"You only need to accomplish {_timesOfAccomplish} for a bonus.");
+            return 0;//because the goal is done, no more points.
         }
-        else
+
+        else//if the goals are not completed comparing to _timesOfAccomplish
             _trackTimes++;
         return TrackAccomplish();
     }
@@ -47,6 +49,7 @@ class ChecklistGoal : Goal
         }
         else
         {
+            _isComplete = true;
             return _point + _bonus;
         }
     }
