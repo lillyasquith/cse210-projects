@@ -14,7 +14,7 @@ class Video
         _author = author;
         _length = length;
     }
-    public void AddComment(Comment comment)//? how to use this function in Main 
+    public void AddComment(Comment comment)
     {
         _comments.Add(comment);
     }
