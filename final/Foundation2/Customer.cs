@@ -5,10 +5,6 @@ class Customer
     private string _customerName;
     public Address _address;
 
-    public Customer()
-    {
-
-    }
     public Customer(string name, Address address)
     {
         _customerName = name;

@@ -7,24 +7,24 @@ class Order
 
     public Order(Customer customer)
     {
-
+        _customer = customer;
     }
-    public int ShippingCost(Customer customer)
+    public int ShippingCost()
     {
-        Customer cux = new Customer();
         int shippingfee = 0;
         bool check = _customer.CheckAddressUSA();
         if (check == true)
         {
-            shippingfee += 5;
+            shippingfee = 5;
+            return shippingfee;
         }
         else
-            shippingfee += 35;
+            shippingfee = 35;
         return shippingfee;
     }
     public int OrderTotal(Product product)
     {
-        int orderTotal = product.ProductFee() + ShippingCost(_customer);
+        int orderTotal = product.ProductFee() + ShippingCost();
         return orderTotal;
     }
     public void PackingLabel()

@@ -6,7 +6,7 @@ class Address
     private string _city;
     private string _state;
     private string _country;
-    private bool _inUSA;
+    // private bool _inUSA;
 
     public Address(string street, string city, string state, string country)
     {
@@ -17,12 +17,12 @@ class Address
     }
     public bool InUSA()
     {
-        if (_inUSA == true)
+        if (_country != "USA")
         {
-            return true;
+            return false;
         }
         else
-            return false;
+            return true;
     }
     public void DisplayAddress()
     {
