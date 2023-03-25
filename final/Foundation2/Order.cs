@@ -9,7 +9,7 @@ class Order
     {
         _customer = customer;
     }
-    public int ShippingCost()
+    public int ShippingCost()//? why only return $5 for shipping
     {
         int shippingfee = 0;
         bool check = _customer.CheckAddressUSA();
@@ -22,6 +22,7 @@ class Order
             shippingfee = 35;
         return shippingfee;
     }
+
     public int OrderTotal(Product product)
     {
         int orderTotal = product.ProductFee() + ShippingCost();

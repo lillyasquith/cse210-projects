@@ -15,10 +15,14 @@ class Program
 
         Product product2 = new Product("Blue Sweatshirt", "0003BS", 35, 1);
         product2.DisplayProduct();
+        Product product3 = new Product("Bomber Jacket", "001XZY", 180, 1);
+        product3.DisplayProduct();
         Console.WriteLine(product2.ProductFee());
         Address address2 = new Address("123 Main Street", "Montreal", "QC", "Canada");
         Customer customer2 = new Customer("John White", address2);
         customer2.DisplayCustomer();
+        Order order2 = new Order(customer2);
+        //need to add a product to a list
         Console.WriteLine(order.OrderTotal(product2));
 
 
