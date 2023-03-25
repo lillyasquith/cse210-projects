@@ -30,7 +30,6 @@ class Address
         Console.WriteLine($"{_city}");
         Console.WriteLine($"{_state}");
         Console.WriteLine($"{_country}");
-
     }
     public string CustomerAddress()
     {

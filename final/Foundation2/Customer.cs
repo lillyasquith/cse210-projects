@@ -4,6 +4,11 @@ class Customer
 {
     private string _customerName;
     public Address _address;
+
+    public Customer()
+    {
+
+    }
     public Customer(string name, Address address)
     {
         _customerName = name;
@@ -11,8 +16,10 @@ class Customer
     }
     public bool CheckAddressUSA()
     {
-        bool inUSA = _address.InUSA();
-        return inUSA;
+        // bool _inUSA = _address.InUSA(); this is another way to return the function 
+        // return _inUSA; (create a variable and return it) 
+        //or just return the function as below:
+        return _address.InUSA();
     }
     public void DisplayCustomer()
     {

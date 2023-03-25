@@ -16,7 +16,7 @@ class Product
     }
     public void DisplayProduct()
     {
-        Console.WriteLine($"({_ID})-- {_productName}: ${_unitPrice} x {_quantity}");
+        Console.WriteLine($"ID: '{_ID}'-- Name: {_productName} -- Price: ${_unitPrice} x {_quantity}");
     }
     public int ProductFee()
     {
