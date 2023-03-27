@@ -39,6 +39,8 @@ class Program
         Order order1 = new Order(customer1);
         order1.AddProduct(product1);
         order1.PackingLabel();
+        Console.WriteLine($"Shipping: ${order1.ShippingCost()}");
+        Console.WriteLine($"Subtotal: ${order1.OrderTotal()}");
         order1.ShippingLabel(customer1);
 
         Console.WriteLine();
@@ -51,11 +53,8 @@ class Program
         order2.AddProduct(product2);
         order2.AddProduct(product3);
         order2.PackingLabel();
+        Console.WriteLine($"Shipping: ${order2.ShippingCost()}");
+        Console.WriteLine($"Subtotal: ${order2.OrderTotal()}");
         order2.ShippingLabel(customer2);
-
-
-
-
-
     }
 }
