@@ -2,30 +2,38 @@ using System;
 
 class Order
 {
-    List<Product> _products = new List<Product>();
+    public List<Product> _products = new List<Product>();
     public Customer _customer;
 
     public Order(Customer customer)
     {
         _customer = customer;
     }
-    public int ShippingCost()//? why only return $5 for shipping
+    public int ShippingCost()
     {
         int shippingfee = 0;
         bool check = _customer.CheckAddressUSA();
         if (check == true)
         {
             shippingfee = 5;
-            return shippingfee;
         }
         else
             shippingfee = 35;
         return shippingfee;
     }
 
-    public int OrderTotal(Product product)
+    public void AddProduct(Product product)//add items to the list before loop through it.
     {
-        int orderTotal = product.ProductFee() + ShippingCost();
+        _products.Add(product);
+    }
+    public int OrderTotal()
+    {
+        int itemFee = 0;
+        foreach (Product product in _products)
+        {
+            itemFee += product.ProductFee();
+        }
+        int orderTotal = itemFee + ShippingCost();
         return orderTotal;
     }
     public void PackingLabel()
