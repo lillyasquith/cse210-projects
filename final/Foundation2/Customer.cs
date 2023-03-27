@@ -19,6 +19,7 @@ class Customer
     }
     public void DisplayCustomer()
     {
+        Console.WriteLine();
         Console.WriteLine($"{_customerName}");
         _address.DisplayAddress();
     }

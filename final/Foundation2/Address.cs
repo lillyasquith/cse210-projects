@@ -28,7 +28,7 @@ class Address
         Console.WriteLine($"{_street}");
         Console.WriteLine($"{_city}");
         Console.WriteLine($"{_state}");
-        Console.WriteLine($"{_country}");
+        Console.WriteLine($"{_country}.");
     }
     public string CustomerAddress()
     {

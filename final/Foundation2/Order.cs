@@ -38,11 +38,14 @@ class Order
     }
     public void PackingLabel()
     {
-
+        foreach (Product product in _products)
+        {
+            product.DisplayProduct();
+        }
     }
-    public void ShippingLabel()
+    public void ShippingLabel(Customer customer)
     {
-
+        customer.DisplayCustomer();
     }
 
 }
