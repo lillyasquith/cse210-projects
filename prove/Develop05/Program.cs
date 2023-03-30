@@ -83,13 +83,13 @@ class Program
             if (menuChoice == "1")
             {
                 Console.WriteLine("The types of Goals are: ");
-                string[] _goalType =
+                string[] goalType =
                 {
                     "1.Simple Goal",
                     "2.Eternal Goal",
                     "3.Checklist Goal",
                 };
-                foreach (string i in _goalType)
+                foreach (string i in goalType)
                 {
                     Console.WriteLine(i);
                 }
@@ -142,7 +142,7 @@ class Program
             {
                 LoadGoal(goals); //Load then List (menuChoice 4 then 2)
             }
-            else if (menuChoice == "5") //Changed the RecordEvent so that it choose only the numbers to record the event without going through each goals.
+            else if (menuChoice == "5") //Changed the RecordEvent so that it choose only the numbers to record the event without going through each string i in goalType.
             {
                 Console.WriteLine("The goals are: ");
                 for (int i = 0; i < goals.Count(); i++)
