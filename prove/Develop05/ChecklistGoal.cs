@@ -63,6 +63,7 @@ class ChecklistGoal : Goal
             Console.WriteLine($" [ ] {_goalName} ({_description}) -- Curruntly completed: {_trackTimes}/{_timesOfAccomplish}");
     }
 
+    //Added Serialize() and Deserialize()
     public override string Serialize()
     {
         string info = "";

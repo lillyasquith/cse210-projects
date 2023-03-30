@@ -142,7 +142,7 @@ class Program
             {
                 LoadGoal(goals); //Load then List (menuChoice 4 then 2)
             }
-            else if (menuChoice == "5")
+            else if (menuChoice == "5") //Changed the RecordEvent so that it choose only the numbers to record the event without going through each goals.
             {
                 Console.WriteLine("The goals are: ");
                 for (int i = 0; i < goals.Count(); i++)
