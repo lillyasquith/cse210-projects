@@ -2,7 +2,7 @@ using System;
 
 class Program
 {
-    static void LoadGoal(List<Goal> goals)// load all the goals that were saved.
+    static void LoadGoal(List<Goal> goals)// load all the goals in the list that were saved.
     {
         Console.Write("What is the file name? ");
         string fileName = Console.ReadLine();
@@ -140,7 +140,7 @@ class Program
             }
             else if (menuChoice == "4")
             {
-                LoadGoal(goals);//need to fix, it did not display any info.
+                LoadGoal(goals); //Load then List (menuChoice 4 then 2)
             }
             else if (menuChoice == "5")
             {
