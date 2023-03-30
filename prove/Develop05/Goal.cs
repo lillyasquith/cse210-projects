@@ -13,7 +13,6 @@ class Goal
     {
 
     }
-
     public virtual void WriteGoal()
     {
         Console.Write("What is the name of your goal? ");
@@ -29,6 +28,7 @@ class Goal
         _point = int.Parse(_input);
     }
 
+    //Added Serialize() and Deserialize() in all classes for Save and Load functions.
     public virtual string Serialize()
     {
         return "";
