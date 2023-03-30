@@ -7,7 +7,7 @@ class Goal
     protected string _description;
     protected int _point;
     protected bool _isComplete;
-    protected string _goalType;
+    protected string _goalType;//this is different than goalType in Main
 
     public Goal()
     {
