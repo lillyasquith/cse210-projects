@@ -1,15 +1,22 @@
 using System;
 
-class Reception
+class Reception : Event
 {
     private string _emailRSVP;
 
-    public Reception()
+    public Reception(string emailRSVP, string eventTitle, string destription, string date, string time, Address address) : base(eventTitle, destription, date, time, address)
     {
-
+        _emailRSVP = emailRSVP;
+        _eventType = "Reception";
     }
-    public void FullDetails()
+    public void ReceptionFullDetails()
     {
-
+        Console.WriteLine($"Full details:");
+        Console.WriteLine($"*{_eventType}*");
+        Console.WriteLine($"'{_eventTitle}'");
+        Console.WriteLine($"--{_destription}--");
+        Console.WriteLine($"{_date} @ {_time}");
+        _address.DisplayAddress();
+        Console.WriteLine($"Please RSVP @{_emailRSVP}");
     }
 }

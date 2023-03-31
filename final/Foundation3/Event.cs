@@ -18,31 +18,29 @@ class Event
         _address = address;
         _eventType = "";
     }
-
-    public string StandardDetails()//void or string?
+    public void DisplayStandardDetails()
     {
-        string standard = "";
-        standard += $"{_eventTitle}";
-        standard += $"{_destription}";
-        standard += $"{_date}";
-        standard += $"{_time}";
-        standard += $"{_address}";
-        return standard;
-    }
-    public void Display()
-    {
-        Console.WriteLine(StandardDetails());
+        Console.WriteLine($"Standard details:");
+        Console.WriteLine($"'{_eventTitle}'");
+        Console.WriteLine($"--{_destription}--");
+        Console.WriteLine($"{_date} @ {_time}");
         _address.DisplayAddress();
     }
-    public string FullDetails()
+    public void DisplayFullDetails()
     {
-        StandardDetails();
-        string full = "";
-        return full;
+        Console.WriteLine($"Full details:");
+        Console.WriteLine($"*{_eventType}*");
+        Console.WriteLine($"'{_eventTitle}'");
+        Console.WriteLine($"--{_destription}--");
+        Console.WriteLine($"{_date} @ {_time}");
+        _address.DisplayAddress();
     }
-    public string ShortDescription()
+    public void DisplayShortDescription()
     {
-        return $"{_eventType} {_eventTitle} {_date}";
+        Console.WriteLine($"Short description:");
+        Console.WriteLine($"*{_eventType}*");
+        Console.WriteLine($"'{_eventTitle}'");
+        Console.WriteLine($"{_date}");
     }
 
 }

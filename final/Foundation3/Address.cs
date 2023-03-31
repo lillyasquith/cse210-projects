@@ -18,13 +18,4 @@ class Address
     {
         Console.WriteLine($"{_street} {_city} {_state} {_country}.");
     }
-    public string AddressInfo()
-    {
-        string address = "";
-        address += $"{_street}";
-        address += $"{_city}";
-        address += $"{_state}";
-        address += $"{_country}";
-        return address;
-    }
 }
