@@ -21,6 +21,7 @@ class Customer
     {
         Console.WriteLine();
         Console.WriteLine($"{_customerName}");
-        _address.DisplayAddress();
+        //_address.DisplayAddress();
+        Console.WriteLine(_address.CustomerAddress());
     }
 }
