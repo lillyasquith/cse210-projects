@@ -28,7 +28,10 @@ class Activity
 
     public void GetSummary()
     {
-        Console.WriteLine($"{_date} {_activityType} ({_length} min)- Distance {GetDistance()} miles, Speed {GetSpeed()} mph, Pace: {GetPace()} min per mile");
+        double distance = GetDistance();
+        double speed = GetSpeed();
+        double pace = GetPace();
+        Console.WriteLine($"{_date} {_activityType} ({_length} min)- Distance {distance.ToString("F2")} miles, Speed {speed.ToString("F2")} mph, Pace: {pace.ToString("F2")} min per mile");
     }
 
 }
