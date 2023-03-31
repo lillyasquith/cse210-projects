@@ -23,20 +23,20 @@ class Address
         else
             return false;
     }
-    public void DisplayAddress()
-    {
-        Console.WriteLine($"{_street}");
-        Console.WriteLine($"{_city}");
-        Console.WriteLine($"{_state}");
-        Console.WriteLine($"{_country}.");
-    }
-    public string CustomerAddress()//why do I need this function 
+    // public void DisplayAddress()//it's only function is to display to Console.
+    // {
+    //     Console.WriteLine($"{_street}");
+    //     Console.WriteLine($"{_city}");
+    //     Console.WriteLine($"{_state}");
+    //     Console.WriteLine($"{_country}.");
+    // }
+    public string CustomerAddress()//it has more use in many different ways.
     {
         string address = "";
-        address += $"{_street}";
-        address += $"{_city}";
-        address += $"{_state}";
-        address += $"{_country}";
+        address += $"{_street}\n";
+        address += $"{_city}\n";
+        address += $"{_state}\n";
+        address += $"{_country}\n";
         return address;
     }
     //The address should have a method to return a string all of its fields together in one string.
