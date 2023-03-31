@@ -26,14 +26,9 @@ class Event
         Console.WriteLine($"{_date} @ {_time}");
         _address.DisplayAddress();
     }
-    public void DisplayFullDetails()
+    public string DisplayFullDetails()//do I need this function?
     {
-        Console.WriteLine($"Full details:");
-        Console.WriteLine($"*{_eventType}*");
-        Console.WriteLine($"'{_eventTitle}'");
-        Console.WriteLine($"--{_destription}--");
-        Console.WriteLine($"{_date} @ {_time}");
-        _address.DisplayAddress();
+        return "";
     }
     public void DisplayShortDescription()
     {
