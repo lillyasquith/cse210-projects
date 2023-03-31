@@ -26,7 +26,7 @@ class Event
         Console.WriteLine($"{_date} @ {_time}");
         _address.DisplayAddress();
     }
-    public string DisplayFullDetails()//do I need this function?
+    public string DisplayFullDetails()
     {
         return "";
     }
