@@ -30,7 +30,7 @@ class Address
         Console.WriteLine($"{_state}");
         Console.WriteLine($"{_country}.");
     }
-    public string CustomerAddress()
+    public string CustomerAddress()//why do I need this function 
     {
         string address = "";
         address += $"{_street}";
@@ -39,5 +39,6 @@ class Address
         address += $"{_country}";
         return address;
     }
+    //The address should have a method to return a string all of its fields together in one string.
 
 }
