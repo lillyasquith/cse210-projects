@@ -2,24 +2,24 @@ using System;
 
 class Swimming : Activity
 {
-    private int _lapNumber;
+    private float _lapNumber;
 
-    public Swimming()
+    public Swimming(float lapN, string date, int length) : base(date, length)
     {
-
+        _lapNumber = lapN;
+        _activityType = "Swimming";
     }
-    public override int GetDistance()
+    public override double GetDistance()
     {
-        return base.GetDistance();
+        double distance = _lapNumber * 50 / 1000 * 0.62;
+        return distance;
     }
-
-    public override int GetSpeed()
+    public override double GetPace()
     {
-        return base.GetSpeed();
+        return _length / GetDistance();
     }
-
-    public override int GetPace()
+    public override double GetSpeed()
     {
-        return base.GetPace();
+        return 60 / GetPace();
     }
 }

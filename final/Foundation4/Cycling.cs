@@ -2,24 +2,24 @@ using System;
 
 class Cycling : Activity
 {
-    private int _speed;
+    private double _speed;
 
-    public Cycling()
+    public Cycling(double speed, string date, int length) : base(date, length)
     {
-
-    }
-    public override int GetDistance()
-    {
-        return base.GetDistance();
+        _speed = speed;
+        _activityType = "Cycling";
     }
 
-    public override int GetSpeed()
+    public override double GetDistance()
     {
-        return base.GetSpeed();
+        return GetPace() / _length;
     }
-
-    public override int GetPace()
+    public override double GetPace()
     {
-        return base.GetPace();
+        return 60 / _speed;
+    }
+    public override double GetSpeed()
+    {
+        return _speed;
     }
 }
