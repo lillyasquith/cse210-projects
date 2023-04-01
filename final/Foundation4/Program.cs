@@ -4,9 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Running running = new Running(3.0, "01 Nov 2022", 30);
-        Cycling cycling = new Cycling(40, "02 Nov 2022", 30);
-        Swimming swimming = new Swimming(100, "03 Nov 2022", 30);
+        Running running = new Running(9, "01 Nov 2022", 48);
+        Cycling cycling = new Cycling(25, "02 Nov 2022", 40);
+        Swimming swimming = new Swimming(30, "03 Nov 2022", 45);
 
         List<Activity> activities = new List<Activity>();
         activities.Add(running);

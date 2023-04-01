@@ -12,7 +12,7 @@ class Cycling : Activity
 
     public override double GetDistance()
     {
-        return GetPace() / _length;
+        return _length / GetPace();
     }
     public override double GetPace()
     {
