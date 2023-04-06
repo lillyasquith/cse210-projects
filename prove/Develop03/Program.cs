@@ -35,7 +35,8 @@ class Program
             {
                 Console.Clear();
                 scripture.HideRandomText();
-
+                
+                //Add CheckAllWords function to end the program after all words are hidden.
                 if (scripture.CheckAllWords())
                 {
                     break;
