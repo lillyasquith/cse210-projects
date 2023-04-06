@@ -31,7 +31,7 @@ class ChecklistGoal : Goal
 
     public override int RecordEvent(List<Goal> goals)
     {
-        if (_trackTimes >= _timesOfAccomplish)//the user can not earn more points if he finish this goal.
+        if (_trackTimes >= _timesOfAccomplish)//the user can not earn more points if he finish this goal.>>Not sure if it counts as exceed core requirements
         {
             Console.WriteLine($"You only need to accomplish {_timesOfAccomplish} for a bonus.");
             return 0;//because the goal is done, no more points.
@@ -63,6 +63,7 @@ class ChecklistGoal : Goal
             Console.WriteLine($" [ ] {_goalName} ({_description}) -- Curruntly completed: {_trackTimes}/{_timesOfAccomplish}");
     }
 
+    //Added Serialize() and Deserialize()
     public override string Serialize()
     {
         string info = "";

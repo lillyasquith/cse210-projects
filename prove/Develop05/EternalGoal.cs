@@ -3,12 +3,9 @@ using System.IO;
 
 class EternalGoal : Goal
 {
-
-    private int _trackTimes;
     public EternalGoal()
     {
         _goalType = "EternalGoal";
-        _trackTimes = 0;
     }
     public override int RecordEvent(List<Goal> goals)
     {
@@ -16,8 +13,10 @@ class EternalGoal : Goal
     }
     public override void DisplayGoal()
     {
-        Console.WriteLine($" [ ] {_goalName} ({_description}) {_trackTimes}");
+        Console.WriteLine($" [ ] {_goalName} ({_description})");
     }
+
+    //Added Serialize() and Deserialize()
     public override string Serialize()
     {
         string info = "";
@@ -26,7 +25,6 @@ class EternalGoal : Goal
         info += $"{_description}>";
         info += $"{_point}>";
         info += $"{_isComplete}>";
-        info += $"{_trackTimes}>";
         return info;
     }
     public override void Deserialize(string line)
@@ -36,8 +34,6 @@ class EternalGoal : Goal
         _description = parts[1];
         _point = int.Parse(parts[2]);
         _isComplete = bool.Parse(parts[3]);
-        _trackTimes = int.Parse(parts[4]);
-
     }
 
 }

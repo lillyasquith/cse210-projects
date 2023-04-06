@@ -9,6 +9,7 @@ class SimpleGoal : Goal
         _goalType = "SimpleGoal";
     }
 
+    //Added Serialize() and Deserialize()
     public override string Serialize()
     {
         string info = "";

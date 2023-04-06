@@ -7,13 +7,12 @@ class Goal
     protected string _description;
     protected int _point;
     protected bool _isComplete;
-    protected string _goalType;
+    protected string _goalType;//this is different than goalType in Main
 
     public Goal()
     {
 
     }
-
     public virtual void WriteGoal()
     {
         Console.Write("What is the name of your goal? ");
@@ -29,6 +28,7 @@ class Goal
         _point = int.Parse(_input);
     }
 
+    //Added Serialize() and Deserialize() in all classes for Save and Load functions.
     public virtual string Serialize()
     {
         return "";
